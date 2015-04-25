@@ -1,0 +1,99 @@
+<!--
+@license
+Copyright (c) 2015 The expand.js authors. All rights reserved.
+This code may only be used under the BSD style license found at https://expandjs.github.io/LICENSE.txt
+The complete set of authors may be found at https://expandjs.github.io/AUTHORS.txt
+The complete set of contributors may be found at https://expandjs.github.io/CONTRIBUTORS.txt
+-->
+
+<!--
+This component is used by mat-list to display a material subheader.
+
+@component mat-subheader
+@description This component is used by mat-list to display a material subheader.
+
+@dependency polymer Polymer/polymer#^0.5
+@dependency expandjs ExpandJS/expandjs
+@dependency mat-ink ExpandJS/mat-ink
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../expandjs/expandjs.html">
+<link rel="import" href="../mat-ink/mat-ink.html">
+
+<polymer-element name="mat-subheader" constructor="MATSubheaderElement" attributes="empty inset label">
+
+    <template>
+        <style>
+            :host {
+                display: block;
+                height: 48px;
+                overflow: visible;
+                text-align: left;
+
+                /* MENU */
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: 0.01em;
+                line-height: 48px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            :host #matSubheaderMain {
+                overflow: hidden;
+                padding: 0 16px;
+            }
+
+            :host([inset]) #matSubheaderMain {
+                padding-left: 72px;
+            }
+        </style>
+        <mat-ink id="matSubheaderWrapper" opacity="secondary">
+            <div id="matSubheaderMain">{{label}}</div>
+        </mat-ink>
+    </template>
+
+    <script>
+        XPComponent({
+
+            // COMPUTED
+            computed: {
+                'empty': '!label'
+            },
+
+            // PUBLISH
+            publish: {
+
+                /**
+                 * If set to true, the element is hidden.
+                 *
+                 * @attribute empty
+                 * @type boolean
+                 * @default false
+                 * @readonly
+                 */
+                empty: {reflect: true, value: false},
+
+                /**
+                 * If set to true, the element is indented.
+                 *
+                 * @attribute inset
+                 * @type boolean
+                 * @default false
+                 */
+                inset: {reflect: true, value: false},
+
+                /**
+                 * The subheader's label
+                 *
+                 * @attribute label
+                 * @type string
+                 * @default ""
+                 */
+                label: {reflect: true, value: ''}
+            }
+        });
+    </script>
+
+</polymer-element>
