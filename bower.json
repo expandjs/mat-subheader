@@ -1,7 +1,7 @@
 {
   "name": "mat-subheader",
   "license": "BSD-3-Clause",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "This element is used by mat-list to display a material subheader.",
   "homepage": "http://www.expandjs.com/elements/mat-subheader",
   "authors": [
