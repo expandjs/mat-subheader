@@ -1,8 +1,8 @@
 {
   "name": "mat-subheader",
   "license": "BSD-3-Clause",
-  "version": "0.8.4",
-  "description": "This element is used by mat-list to display a material subheader.",
+  "version": "0.8.5",
+  "description": "A custom element used to display a Material Design subheader",
   "homepage": "http://www.expandjs.com/elements/mat-subheader",
   "authors": [
     "Giuliano Rullo <g.rullo@expandjs.com>",
