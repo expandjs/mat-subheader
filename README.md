@@ -1,3 +1,3 @@
 # mat-subheader
 
-See the [`documentation page`](http://www.expandjs.com/elements/mat-subheader) for more information.
+See the [`documentation page`](http://expandjs.com/elements/mat-subheader) for more information.
