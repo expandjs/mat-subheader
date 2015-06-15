@@ -24,8 +24,8 @@
     "**/.*"
   ],
   "dependencies": {
-    "expandjs": "ExpandJS/expandjs",
-    "mat-ink": "ExpandJS/mat-ink",
+    "expandjs": "ExpandJS/expandjs#alpha",
+    "mat-ink": "ExpandJS/mat-ink#alpha",
     "polymer": "Polymer/polymer#^0.5"
   }
 }
