@@ -1,0 +1,121 @@
+<!--
+@license
+Copyright (c) 2015 The ExpandJS authors. All rights reserved.
+This code may only be used under the BSD style license found at https://expandjs.github.io/LICENSE.txt
+The complete set of authors may be found at https://expandjs.github.io/AUTHORS.txt
+The complete set of contributors may be found at https://expandjs.github.io/CONTRIBUTORS.txt
+-->
+
+<!--
+This element is used by mat-list to display a material subheader.
+
+@element mat-subheader
+@description A custom element used to display a Material Design subheader
+@keywords material design, material subheader, web app, html5, expandjs, web-components
+@group contents
+@homepage http://expandjs.com/elements/mat-subheader
+@demo http://expandjs.com/demo/mat-subheader
+
+@dependency polymer Polymer/polymer
+@dependency expandjs ExpandJS/expandjs
+@dependency mat-ink ExpandJS/mat-ink
+
+@devDependency mat-demo ExpandJS/mat-demo
+@devDependency mat-item ExpandJS/mat-item
+@devDependency mat-paper ExpandJS/mat-paper
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../expandjs/expandjs.html">
+<link rel="import" href="../mat-ink/mat-ink.html">
+
+<dom-module id="mat-subheader">
+
+    <style>
+        :host {
+            @apply(--mat-font-menu);
+            display: block;
+            height: 48px;
+            line-height: 48px !important; /* override */
+            overflow: visible;
+            text-align: left;
+        }
+
+        :host #matSubheaderMain {
+            overflow: hidden;
+            padding: 0 16px;
+        }
+
+        :host([inset]) #matSubheaderMain {
+            padding-left: 72px;
+        }
+    </style>
+
+    <template>
+        <mat-ink id="matSubheaderWrapper" opacity="secondary">
+            <div id="matSubheaderMain">{{label}}</div>
+        </mat-ink>
+    </template>
+
+    <script>
+        Polymer({
+
+            // ELEMENT
+            is: 'mat-subheader',
+            
+            /*********************************************************************/
+
+            // PROPERTIES
+            properties: {
+
+                /**
+                 * If set to true, the element is hidden.
+                 *
+                 * @attribute empty
+                 * @type boolean
+                 * @notifies
+                 * @readonly
+                 */
+                empty: {
+                    computed: '_computeEmpty(label)',
+                    notify: true,
+                    reflectToAttribute: true,
+                    type: Boolean
+                },
+
+                /**
+                 * If set to true, the element is indented.
+                 *
+                 * @attribute inset
+                 * @type boolean
+                 * @default false
+                 */
+                inset: {
+                    reflectToAttribute: true,
+                    type: Boolean,
+                    value: false
+                },
+
+                /**
+                 * The subheader's label
+                 *
+                 * @attribute label
+                 * @type string
+                 */
+                label: {
+                    reflectToAttribute: true,
+                    type: String,
+                    value: null
+                }
+            },
+
+            /*********************************************************************/
+
+            // COMPUTER
+            _computeEmpty: function (label) {
+                return !label;
+            }
+        });
+    </script>
+
+</dom-module>
