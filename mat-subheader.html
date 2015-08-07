@@ -7,7 +7,27 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
 -->
 
 <!--
-This element is used by mat-list to display a material subheader.
+An element used to display a [Material Design subheader](http://www.google.com/design/spec/components/subheaders.html).
+
+```html
+<mat-list>
+    <mat-subheader label="Contacts"></mat-subheader>
+    ...
+</mat-list>
+```
+
+It can also be indented on the left side. This is useful when a FAB is left aligned on the screen.
+
+```html
+<mat-header>
+    ...
+    <mat-fab icon="content:add" left mini></mat-fab>
+</mat-header>
+<mat-list>
+    <mat-subheader label="Today" inset></mat-subheader>
+    ...
+</mat-list>
+```
 
 @element mat-subheader
 @description A custom element used to display a Material Design subheader
@@ -18,12 +38,12 @@ This element is used by mat-list to display a material subheader.
 @demo http://expandjs.com/demo/mat-subheader
 
 @dependency polymer Polymer/polymer#^1.0.0
-@dependency expandjs ExpandJS/expandjs#0.9.5
-@dependency mat-ink ExpandJS/mat-ink#0.9.5
+@dependency expandjs ExpandJS/expandjs#0.9.6
+@dependency mat-ink ExpandJS/mat-ink#0.9.6
 
-@devDependency mat-demo ExpandJS/mat-demo#0.9.5
-@devDependency mat-item ExpandJS/mat-item#0.9.5
-@devDependency mat-list ExpandJS/mat-list#0.9.5
+@devDependency mat-demo ExpandJS/mat-demo#0.9.6
+@devDependency mat-item ExpandJS/mat-item#0.9.6
+@devDependency mat-list ExpandJS/mat-list#0.9.6
 -->
 
 <link rel="import" href="../polymer/polymer.html">
