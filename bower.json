@@ -2,6 +2,7 @@
   "name": "mat-subheader",
   "license": "BSD-3-Clause",
   "version": "0.9.6",
+  "main": "mat-subheader.html",
   "description": "A custom element used to display a Material Design subheader",
   "homepage": "http://expandjs.com/elements/mat-subheader",
   "authors": [
@@ -16,9 +17,6 @@
     "html5",
     "expandjs",
     "web-components"
-  ],
-  "main": [
-    "mat-subheader.html"
   ],
   "ignore": [
     "**/.*"
