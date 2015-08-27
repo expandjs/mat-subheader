@@ -52,30 +52,32 @@ It can also be indented on the left side. This is useful when a FAB is left alig
 
 <dom-module id="mat-subheader">
 
-    <style>
-        :host {
-            @apply(--mat-font-menu);
-            display: block;
-            height: 48px;
-            line-height: 48px !important; /* override */
-            overflow: visible;
-            text-align: left;
-        }
-
-        :host #matSubheaderMain {
-            overflow: hidden;
-            padding: 0 16px;
-        }
-
-        :host([inset]) #matSubheaderMain {
-            padding-left: 72px;
-        }
-    </style>
-
     <template>
+
+        <style>
+            :host {
+                @apply(--mat-font-menu);
+                display: block;
+                height: 48px;
+                line-height: 48px !important; /* override */
+                overflow: visible;
+                text-align: left;
+            }
+
+            :host #matSubheaderMain {
+                overflow: hidden;
+                padding: 0 16px;
+            }
+
+            :host([inset]) #matSubheaderMain {
+                padding-left: 72px;
+            }
+        </style>
+
         <mat-ink id="matSubheaderWrapper" opacity="secondary">
             <div id="matSubheaderMain">{{label}}</div>
         </mat-ink>
+
     </template>
 
     <script>
