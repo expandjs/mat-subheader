@@ -7,7 +7,10 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
 -->
 
 <!--
-An element used to display a [Material Design subheader](http://www.google.com/design/spec/components/subheaders.html).
+A custom element used to display a [Material Design subheader](http://www.google.com/design/spec/components/subheaders.html).
+
+It can be used in conjunction with
+[mat-list](http://expandjs.com/elements/mat-list)
 
 ```html
 <mat-list>
@@ -31,28 +34,36 @@ It can also be indented on the left side. This is useful when a FAB is left alig
 
 @element mat-subheader
 @description A custom element used to display a Material Design subheader
-@keywords material design, material subheader, web app, html5, expandjs, web-components
+@keywords material design, expandjs, web app, custom elements, web-components
 @group contents
+
 @homepage http://expandjs.com/elements/mat-subheader
 @repository https://github.com/ExpandJS/mat-subheader
 @demo http://expandjs.com/demo/mat-subheader
 
-@dependency polymer Polymer/polymer#^1.0.0
-@dependency expandjs ExpandJS/expandjs#0.9.11
-@dependency mat-ink ExpandJS/mat-ink#0.9.11
+@behavior mat-ink-behavior /bower_components/mat-ink/mat-ink-behavior.html
 
-@devDependency mat-demo ExpandJS/mat-demo#0.9.11
-@devDependency mat-item ExpandJS/mat-item#0.9.11
-@devDependency mat-list ExpandJS/mat-list#0.9.11
+@dependency polymer Polymer/polymer#^1.0.0
+@dependency expandjs ExpandJS/expandjs#0.10.0
+@dependency mat-ink ExpandJS/mat-ink#0.10.0
+@dependency mat-typography ExpandJS/mat-typography#0.10.0
+
+@devDependency mat-demo ExpandJS/mat-demo#0.10.0
+@devDependency mat-item ExpandJS/mat-item#0.10.0
+@devDependency mat-list ExpandJS/mat-list#0.10.0
 -->
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../expandjs/expandjs.html">
-<link rel="import" href="../mat-ink/mat-ink.html">
+<link rel="import" href="../mat-ink/mat-ink-behavior.html">
+<link rel="import" href="../mat-ink/mat-ink-styles.html">
+<link rel="import" href="../mat-typography/mat-typography.html">
 
 <dom-module id="mat-subheader">
 
-    <template>
+    <template strip-whitespace>
+
+        <style include="mat-ink-styles"></style>
 
         <style>
             :host {
@@ -60,23 +71,22 @@ It can also be indented on the left side. This is useful when a FAB is left alig
                 display: block;
                 height: 48px;
                 line-height: 48px !important; /* override */
-                overflow: visible;
                 text-align: left;
             }
 
-            :host #matSubheaderMain {
+            :host .wrapper {
                 overflow: hidden;
+                text-overflow: ellipsis !important;
+                white-space: nowrap !important;
                 padding: 0 16px;
             }
 
-            :host([inset]) #matSubheaderMain {
+            :host([inset]) .wrapper {
                 padding-left: 72px;
             }
         </style>
 
-        <mat-ink id="matSubheaderWrapper" opacity="secondary">
-            <div id="matSubheaderMain">{{label}}</div>
-        </mat-ink>
+        <div class="wrapper">[[label]]</div>
 
     </template>
 
@@ -86,27 +96,15 @@ It can also be indented on the left side. This is useful when a FAB is left alig
             // ELEMENT
             is: 'mat-subheader',
 
+            // BEHAVIORS
+            behaviors: [
+                Polymer.MatInkBehavior
+            ],
+
             /*********************************************************************/
 
             // PROPERTIES
             properties: {
-
-                /**
-                 * If set to true, the element is hidden.
-                 *
-                 * @attribute empty
-                 * @type boolean
-                 * @default true
-                 * @notifies
-                 * @readonly
-                 */
-                empty: {
-                    computed: '_computeEmpty(label)',
-                    notify: true,
-                    reflectToAttribute: true,
-                    type: Boolean,
-                    value: true
-                },
 
                 /**
                  * If set to true, the element is indented.
@@ -129,16 +127,30 @@ It can also be indented on the left side. This is useful when a FAB is left alig
                  */
                 label: {
                     reflectToAttribute: true,
+                    type: String
+                },
+
+                /**
+                 * The subheader's opacity.
+                 *
+                 * @attribute opacity
+                 * @type string
+                 * @default "secondary"
+                 */
+                opacity: {
+                    reflectToAttribute: true,
                     type: String,
-                    value: null
+                    value: 'secondary'
                 }
             },
 
             /*********************************************************************/
 
-            // COMPUTER
-            _computeEmpty: function (label) {
-                return !label;
+            // LISTENER
+            created: function () {
+
+                // Classifying
+                this.classList.add('subheader');
             }
         });
     </script>
