@@ -1,3 +1,3 @@
 # mat-subheader
 
-See the [`documentation page`](http://expandjs.com/elements/mat-subheader) for more information.
+This repository has been merged into [`mat-elements`](https://github.com/expandjs/mat-elements).
